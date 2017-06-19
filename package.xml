@@ -21,7 +21,6 @@
     <depend>roslib</depend>
     <depend>nodelet</depend>
     <depend>std_msgs</depend>
-    <depend>sensor_msgs</depend>
 
     <!-- The export tag contains other, unspecified, tags -->
     <export>
