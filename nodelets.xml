@@ -1,0 +1,9 @@
+<library path = "lib/libbw_generator_nodelet">
+    <class  name            = "bw_generator/bw_generator_nodelet"
+            type            = "bw_generator::BWGeneratorNodelet"
+            base_class_type = "nodelet::Nodelet">
+        <description>
+            Dummy Bandwidth Generator Nodelet
+        </description>
+    </class>
+</library>

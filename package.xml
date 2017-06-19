@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<package format="2">
+    <!-- package information -->
+    <name>bw_generator</name>
+    <version>1.0.0</version>
+    <description>dummy bandwidth generator package</description>
+
+    <!-- authour information -->
+    <author>carlos wang</author>
+    <maintainer
+        email="carlos.wang.uw@gmail.com">
+        carlos wang
+    </maintainer>
+    <license>BSD</license>
+
+    <!-- build tool information  -->
+    <buildtool_depend>catkin </buildtool_depend>
+
+    <!-- depends -->
+    <depend>roscpp</depend>
+    <depend>roslib</depend>
+    <depend>nodelet</depend>
+    <depend>std_msgs</depend>
+    <depend>sensor_msgs</depend>
+
+    <!-- The export tag contains other, unspecified, tags -->
+    <export>
+        <!-- nodelet plugin -->
+        <nodelet plugin="${prefix}/nodelets.xml"/>
+    </export>
+</package>

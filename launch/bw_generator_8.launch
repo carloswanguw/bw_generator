@@ -1,0 +1,8 @@
+<launch>
+    <node pkg="bw_generator" type="bw_generator_node" name="bw_generator_8" output="screen">
+        <param name="bw_node_name" type="str" value="generator8"/>
+        <param name="bw_msg_rate" type="double" value="10.0"/>
+        <param name="bw_msg_size" type="int" value="4000000"/>
+        <param name="bw_msg_val" type="int" value="0"/>
+    </node>
+</launch>
