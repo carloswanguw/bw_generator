@@ -4,5 +4,7 @@
         <param name="bw_msg_rate" type="double" value="10.0"/>
         <param name="bw_msg_size" type="int" value="4000000"/>
         <param name="bw_msg_val" type="int" value="0"/>
+        <param name="bw_load_amount" type="int" value="10000000"/>
+        <param name="bw_mem_load_size" type="int" value="300000000"/>
     </node>
 </launch>

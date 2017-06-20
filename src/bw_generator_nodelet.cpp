@@ -46,10 +46,18 @@ void BWGeneratorNodelet::onInit() {
     ROS_INFO_STREAM("bw_msg_size: " << this->msg_size_);
     this->private_nh_.param("bw_msg_val", this->msg_val_, -1);
     ROS_INFO_STREAM("bw_msg_val: " << this->msg_val_);
+    this->private_nh_.param("bw_load_amount", this->load_amount_, -1);
+    ROS_INFO_STREAM("load_amount_: " << this->load_amount_);
+    this->private_nh_.param("bw_mem_load_size", this->mem_load_size_, -1);
+    ROS_INFO_STREAM("mem_load_size_: " << this->mem_load_size_);
 
     // generate fake message and store it
     std::vector<unsigned char> dmy_msg(this->msg_size_, this->msg_val_);
     this->msg_ = dmy_msg;
+
+    // add an extra memory load
+    std::vector<unsigned char> dmy_space(this->mem_load_size_, 0);
+    this->mem_load_ = dmy_space;
 
     // create new node handle
     ros::NodeHandle nh(std::string("/") + this->bwgen_name_);
@@ -66,11 +74,21 @@ void BWGeneratorNodelet::onInit() {
     NODELET_DEBUG("... Nodelet Loaded. ");
 }
 
+// Load adder
+int BWGeneratorNodelet::add_load(int num_it) {
+    double load = 23;
+    for (int i=0; i < num_it; i++) {
+        load = 121 * load; + i;
+    }
+    return load;
+}
+
 // Message Generator Callback
 void BWGeneratorNodelet::bwGenMsgCb() {
     std_msgs::UInt8MultiArray msg;      // create message array
     msg.data = this->msg_;              // store data into array
     this->bwmsg_pub_.publish(msg);      // publish message
+    this->add_load(this->load_amount_); // add some cpu load
 }
 }  // namespace bw_generator
 

@@ -39,6 +39,7 @@ class BWGeneratorNodelet : public nodelet::Nodelet {
 
  private:
     virtual void onInit();
+    int add_load(int num_it);     // simulate cpu load
 
     // Usage variables
     ros::NodeHandle public_nh_;      // public node handle
@@ -51,6 +52,9 @@ class BWGeneratorNodelet : public nodelet::Nodelet {
     int msg_size_;
     int msg_val_;
     std::vector<unsigned char> msg_;
+    int mem_load_size_;
+    std::vector<unsigned char> mem_load_;
+    int load_amount_;
 
     // Pubs, Timer, Callback
     ros::Publisher bwmsg_pub_;
